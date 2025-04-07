@@ -37,7 +37,7 @@ function photographerTemplate(data) {
 
     // Affiche les prix
     const priceElement = document.createElement("p");
-    priceElement.textContent = `${price}/jour`;
+    priceElement.textContent = `${price}€/jour`;
     priceElement.classList.add("photographer-price");
     article.appendChild(priceElement);
 
