@@ -36,14 +36,32 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
+  gap: 5px;
+}
+
+.photographer_section article h2,
+.photographer_section p {
+  margin: 0;
 }
 
 .photographer_section article h2 {
   color: #d3573c;
   font-size: 36px;
+  margin-bottom: 5px;
 }
 
 .photographer_section article img {
   height: 200px;
   width: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.photographer-localisation {
+  color: #901c1c;
+}
+
+.photographer-price {
+  color: #a9a9a9;
 }

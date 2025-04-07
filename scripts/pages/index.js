@@ -1,4 +1,4 @@
-// Récupère les datas dans le fichier JSON
+// Appel API
 async function getPhotographers() {
   const response = await fetch("./data/photographers.json");
   const data = await response.json();
@@ -6,6 +6,7 @@ async function getPhotographers() {
   return data.photographers;
 }
 
+// Affiche les datas
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
@@ -16,8 +17,8 @@ async function displayData(photographers) {
   });
 }
 
+// Récupère les datas des photographes
 async function init() {
-  // Récupère les datas des photographes
   const photographers = await getPhotographers();
   displayData(photographers);
 }
