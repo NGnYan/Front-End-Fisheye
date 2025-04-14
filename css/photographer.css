@@ -3,9 +3,31 @@
 }
 
 .photograph-header {
+  display: flex;
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+}
+
+.photograph-header img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.photograph-header article h2 {
+  color: #d3573c;
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.photographer-localisation {
+  color: #901c1c;
+}
+
+.photographer-price {
+  color: #a9a9a9;
 }
 
 .contact_button {
@@ -20,6 +42,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* MODAL */
 
 .modal {
   border-radius: 5px;
