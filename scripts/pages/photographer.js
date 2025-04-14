@@ -11,15 +11,13 @@ async function getPhotographers() {
   return data.photographers;
 }
 
-// Fonction pour afficher les informations du photographe en utilisant le template
+// Afficher les informations du photographe en utilisant le template
 function displayPhotographer(photographer) {
   const photographersHeader = document.querySelector(".photograph-header");
 
-  // Utilisation du template pour obtenir le DOM du photographe
   const photographerModel = photographerTemplate(photographer);
   const userCardDOM = photographerModel.getUserCardDOM();
 
-  // Ajout du DOM du photographe à la section header
   photographersHeader.appendChild(userCardDOM);
 }
 

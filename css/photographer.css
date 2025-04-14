@@ -4,6 +4,7 @@
 
 .photograph-header {
   display: flex;
+  align-items: center;
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;

@@ -6,6 +6,7 @@ function photographerTemplate(data) {
   function getUserCardDOM() {
     try {
       const article = document.createElement("article");
+      article.classList.add("photographer-infos");
 
       // Création des liens vers les profil des photographes
       const photographerInfos = new URLSearchParams({ id });
