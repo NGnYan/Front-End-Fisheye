@@ -9,12 +9,9 @@ function photographerTemplate(data) {
       article.classList.add("photographer-infos");
 
       // Création des liens vers les profil des photographes
-      const photographerInfos = new URLSearchParams({ id });
+      //const photographerInfos = new URLSearchParams({ id });
       const link = document.createElement("a");
-      link.setAttribute(
-        "href",
-        `photographer.html?${photographerInfos.toString()}`
-      );
+      link.setAttribute("href", `photographer.html?${id}`);
       link.setAttribute("aria-label", `Voir le profil de ${name}`);
       article.appendChild(link);
 
@@ -49,7 +46,7 @@ function photographerTemplate(data) {
 
       return article;
     } catch (error) {
-      const errorMessage = document.createElement("h1");
+      const errorMessage = document.createElement("p");
       errorMessage.innerText =
         "Une erreur est survenue. Veuillez réessayer plus tard.";
       return errorMessage;

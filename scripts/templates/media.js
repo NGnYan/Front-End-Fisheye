@@ -7,7 +7,7 @@ function mediaTemplate(media) {
   article.appendChild(mediaPictures);
 
   const imgTitle = document.createElement("h2");
-  imgTitle.innerHTML = media.title;
+  imgTitle.textContent = media.title;
   article.appendChild(imgTitle);
 
   return article;

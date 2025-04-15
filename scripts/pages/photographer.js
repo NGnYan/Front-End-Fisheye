@@ -1,14 +1,14 @@
 // Récupère l'ID du photographe depuis l'URL
 function getPhotographerId() {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get("id");
+  return parseInt(urlParams.get("id"));
 }
 
 // Appel API
 async function getPhotographers() {
   const response = await fetch("./data/photographers.json");
   const data = await response.json();
-  return data.photographers;
+  return data;
 }
 
 // Affiche les infos du photographe dans le header
@@ -34,12 +34,12 @@ function displayMedia(mediaArray) {
 // Initialise la page
 async function init() {
   const photographerId = getPhotographerId();
-  const photographers = await getPhotographers();
-  const mediaArray = await getPhotographers();
-  const photographer = photographers.find((p) => p.id == photographerId);
+  const { photographers, media } = await getPhotographers();
+  const photographer = photographers.find((p) => p.id === photographerId);
+  const medias = media.filter((m) => m.photographerId === photographerId);
 
   displayPhotographer(photographer);
-  displayMedia(mediaArray);
+  displayMedia(medias);
 }
 
 init();
