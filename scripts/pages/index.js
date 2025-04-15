@@ -5,7 +5,7 @@ async function getPhotographers() {
   return data.photographers;
 }
 
-// Affiche les informations du photographe en utilisant le template
+//  Affiche les infos du photographe dans la section
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 

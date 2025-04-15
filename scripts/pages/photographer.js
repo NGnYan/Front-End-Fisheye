@@ -4,7 +4,7 @@ function getPhotographerId() {
   return urlParams.get("id");
 }
 
-// Récupère les données des photographes
+// Appel API
 async function getPhotographers() {
   const response = await fetch("./data/photographers.json");
   const data = await response.json();
