@@ -16,18 +16,18 @@ function displayPhotographer(photographer) {
   const photographersHeader = document.querySelector(".photograph-header");
 
   const photographerInfos = photographerTemplate(photographer);
-  const userCardDOM = photographerInfos.getUserCardDOM();
+  const profilCardDOM = photographerInfos.getUserCardDOM();
 
-  photographersHeader.appendChild(userCardDOM);
+  photographersHeader.appendChild(profilCardDOM);
 }
 
 // Affiche les photos des photographes
-function displayMedia(mediaArray) {
+function displayMedia(media) {
   const mediaSection = document.querySelector(".media-section");
 
-  mediaArray.forEach((media) => {
-    const mediaPicture = mediaTemplate(media);
-    mediaSection.appendChild(mediaPicture);
+  media.forEach((media) => {
+    const mediaElmt = mediaTemplate(media);
+    mediaSection.appendChild(mediaElmt);
   });
 }
 
