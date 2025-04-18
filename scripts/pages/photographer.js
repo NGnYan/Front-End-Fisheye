@@ -69,6 +69,7 @@ async function init() {
   displayPhotographer(photographer);
   displayMedia(medias);
   displayPrice(photographer);
+  displayInfos(photographer);
 }
 
 init();
