@@ -1,10 +1,22 @@
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  margin: 50px 100px;
+}
+
 /* HEADER */
 .photograph-header {
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: #fafafa;
   height: 300px;
-  margin: 0 100px;
+  margin: 0 100px 20px 100px;
+  gap: 150px;
 }
 
 .photograph-header img {
@@ -12,20 +24,26 @@
   width: 200px;
   border-radius: 100px;
   object-fit: cover;
+  order: 3;
 }
 
-.photograph-header article h2 {
+.photographers-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  order: 0;
+}
+
+.photograph-header h2 {
   color: #d3573c;
-  font-size: 36px;
-  margin-bottom: 5px;
+  font-size: 3.5em;
+  margin-bottom: 0;
 }
 
 .photographer-localisation {
   color: #901c1c;
-}
-
-.photographer-price {
-  color: #a9a9a9;
+  font-size: 1.5em;
+  margin: 0;
 }
 
 .contact_button {
@@ -39,6 +57,7 @@
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+  order: 1;
 }
 
 /* MODAL */
@@ -108,7 +127,7 @@ form input {
   justify-content: center;
 }
 
-.media-picture {
+.media-elmts {
   display: flex;
   height: 400px;
   width: 400px;
@@ -119,4 +138,21 @@ form input {
 .media-title {
   font-weight: normal;
   color: #901c1c;
+}
+
+.price-box {
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  height: 25px;
+  width: 15%;
+  padding: 10px 15px;
+  background-color: #db8876;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: end;
+  font-weight: bold;
+  font-size: 1.1em;
+  z-index: 100;
 }

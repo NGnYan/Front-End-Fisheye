@@ -14,11 +14,11 @@ function photographerTemplate(data) {
     article.appendChild(link);
 
     // Affiche les photos des portraits
-    const img = document.createElement("img");
-    img.setAttribute("src", picture);
-    img.setAttribute("alt", `Portrait ${name}`);
-    article.appendChild(img);
-    link.appendChild(img); // Liaison du lien et de l'image
+    const photographerPortrait = document.createElement("img");
+    photographerPortrait.setAttribute("src", picture);
+    photographerPortrait.setAttribute("alt", `Portrait ${name}`);
+    article.appendChild(photographerPortrait);
+    link.appendChild(photographerPortrait); // Liaison du lien et de l'image
 
     // Affiche les titres
     const h2 = document.createElement("h2");
