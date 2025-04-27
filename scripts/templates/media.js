@@ -1,6 +1,6 @@
 /**
  * Creates a media element (images or videos) for display
- * @returns {HTMLElement} The DOM element representing the media item (image or video) and its title
+ * @returns {HTMLElement} The DOM element representing the media item (image or video) and informations (title and like)
  */
 function mediaTemplate(media) {
   const article = document.createElement("article");
@@ -19,6 +19,7 @@ function mediaTemplate(media) {
     article.appendChild(videoElmt);
   }
 
+  // Medias informations
   const infoDiv = document.createElement("div");
   infoDiv.classList.add("media-info");
   article.appendChild(infoDiv);
@@ -28,6 +29,7 @@ function mediaTemplate(media) {
   imgTitle.classList.add("media-title");
   infoDiv.appendChild(imgTitle);
 
+  // Like counter
   const likeContainer = document.createElement("div");
   likeContainer.classList.add("like-container");
   infoDiv.appendChild(likeContainer);

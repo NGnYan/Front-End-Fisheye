@@ -75,9 +75,28 @@ function displayMedia(media) {
  * Displays photographer's price
  * @param {Object} photographer Photographer object containing details
  */
-function displayPrice(photographer) {
-  infosBox.classList.add("price-box");
-  infosBox.textContent = `${photographer.price}€/jour`;
+function displayPrice(photographer, media) {
+  let totalLikes = 0;
+
+  media.forEach((mediaInfos) => {
+    totalLikes += mediaInfos.likes;
+  });
+
+  const likesContainer = document.createElement("div");
+  likesContainer.classList.add("likes-container");
+  infosBox.appendChild(likesContainer);
+
+  const totalLikesText = document.createElement("p");
+  totalLikesText.textContent = `${totalLikes}`;
+  likesContainer.appendChild(totalLikesText);
+
+  const likeButton = document.createElement("i");
+  likeButton.classList.add("fa-solid", "fa-heart");
+  likesContainer.appendChild(likeButton);
+
+  const priceText = document.createElement("p");
+  priceText.textContent = `${photographer.price}€/jour`;
+  infosBox.appendChild(priceText);
 }
 
 /**
@@ -92,7 +111,7 @@ async function init() {
 
   displayPhotographer(photographer);
   displayMedia(medias);
-  displayPrice(photographer);
+  displayPrice(photographer, medias);
   displayModalInfos(photographer);
 }
 

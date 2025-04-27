@@ -231,21 +231,30 @@ form input {
 
 /* Box-photographer */
 
-.price-box {
+.box-photographer {
   position: fixed;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
   bottom: 0px;
   right: 20px;
   height: 25px;
-  width: 15%;
-  padding: 10px 15px;
+  width: 10%;
+  padding: 10px 35px;
   background-color: #db8876;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  text-align: end;
   font-weight: bold;
   font-size: 1.1em;
   z-index: 100;
+}
+
+.likes-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 /* LIGHTBOX */
