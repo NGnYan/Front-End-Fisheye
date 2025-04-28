@@ -20,10 +20,27 @@
     <header>
       <img src="assets/images/logo.png" class="logo" />
     </header>
+
     <main id="main">
       <div class="photograph-header">
         <button class="contact_button">Contactez-moi</button>
       </div>
+
+      <div class="dropdown" tabindex="0">
+        <h2 class="dropdown-title">Trier par</h2>
+        <button
+          class="dropdown-btn"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          Popularité
+        </button>
+        <ul class="dropdown-menu" role="listbox" hidden>
+          <li role="option" tabindex="0">Date</li>
+          <li role="option" tabindex="0">Titre</li>
+        </ul>
+      </div>
+
       <section class="media-section"></section>
     </main>
 
