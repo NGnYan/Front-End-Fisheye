@@ -44,26 +44,25 @@ function refreshLightbox(mediaElmt) {
  * @return {void}
  */
 function displayLightbox(mediaElmt, medias) {
-  refreshLightbox(mediaElmt);
+  let currentMediaElmt = mediaElmt;
+  refreshLightbox(currentMediaElmt);
 
   nextButton.addEventListener("click", () => {
-    medias.forEach((media, index) => {
-      if (media.id == mediaElmt.id) {
-        mediaElmt = medias[index + 1];
-        refreshLightbox(mediaElmt);
-        return;
-      }
-    });
+    let currentIndex = medias.findIndex(
+      (media) => media.id === currentMediaElmt.id
+    );
+    const newIndex = currentIndex === medias.length - 1 ? 0 : currentIndex + 1;
+    currentMediaElmt = medias[newIndex];
+    refreshLightbox(currentMediaElmt);
   });
 
   previousButton.addEventListener("click", () => {
-    medias.forEach((media, index) => {
-      if (media.id == mediaElmt.id) {
-        mediaElmt = medias[index - 1];
-        refreshLightbox(mediaElmt);
-        return;
-      }
-    });
+    let currentIndex = medias.findIndex(
+      (media) => media.id === currentMediaElmt.id
+    );
+    const newIndex = currentIndex === medias.length - 1 ? 0 : currentIndex - 1;
+    currentMediaElmt = medias[newIndex];
+    refreshLightbox(currentMediaElmt);
   });
 }
 

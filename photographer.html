@@ -18,7 +18,9 @@
 
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" alt="Logo du site" />
+      </a>
     </header>
 
     <main id="main">
@@ -78,19 +80,11 @@
       <button id="lightbox-close" aria-label="Fermer" onclick="closeLightbox()">
         <img src="assets/icons/close-lightbox.svg" class="icon-lightbox" />
       </button>
-      <button
-        id="lightbox-prev"
-        aria-label="Image précédente"
-        onclick="prevMedia()"
-      >
+      <button id="lightbox-prev" aria-label="Image précédente">
         <img src="assets/icons/prev-lightbox.svg" />
       </button>
       <div id="lightbox-content" class="lightbox-content"></div>
-      <button
-        id="lightbox-next"
-        aria-label="Image suivante"
-        onclick="nextMedia()"
-      >
+      <button id="lightbox-next" aria-label="Image suivante">
         <img src="assets/icons/next-lightbox.svg" />
       </button>
     </div>
@@ -101,6 +95,6 @@
     <script src="/scripts/templates/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/utils/ligthbox.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
   </body>
 </html>

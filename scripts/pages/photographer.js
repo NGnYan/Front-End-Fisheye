@@ -22,7 +22,7 @@ async function getPhotographers() {
   return data;
 }
 
-let medias = [];
+let filteredMedias = [];
 
 /**
  * Displays the photographer's information in the header
@@ -60,12 +60,12 @@ function displayPhotographer(photographer) {
  * Display photographer media (images and videos)
  * @param {Array} media Array of media objects
  */
-function displayMedia(media) {
-  media.forEach((mediaElmt) => {
+function displayMedia(filteredMedias) {
+  filteredMedias.forEach((mediaElmt) => {
     const mediaElmts = mediaTemplate(mediaElmt);
     const mediaElement = mediaElmts.querySelector(".media-elmts");
     mediaElement.addEventListener("click", () => {
-      displayLightbox(mediaElmt, medias);
+      displayLightbox(mediaElmt, filteredMedias);
     });
     mediaSection.appendChild(mediaElmts);
   });
@@ -90,9 +90,9 @@ function displayPrice(photographer, media) {
   totalLikesText.textContent = `${totalLikes}`;
   likesContainer.appendChild(totalLikesText);
 
-  const likeButton = document.createElement("i");
-  likeButton.classList.add("fa-solid", "fa-heart");
-  likesContainer.appendChild(likeButton);
+  const likeIcon = document.createElement("i");
+  likeIcon.classList.add("fa-solid", "fa-heart");
+  likesContainer.appendChild(likeIcon);
 
   const priceText = document.createElement("p");
   priceText.textContent = `${photographer.price}€/jour`;
@@ -107,11 +107,11 @@ async function init() {
   const photographerId = getPhotographerId();
   const { photographers, media } = await getPhotographers();
   const photographer = photographers.find((p) => p.id === photographerId);
-  medias = media.filter((m) => m.photographerId === photographerId);
+  filteredMedias = media.filter((m) => m.photographerId === photographerId);
 
   displayPhotographer(photographer);
-  displayMedia(medias);
-  displayPrice(photographer, medias);
+  displayMedia(filteredMedias);
+  displayPrice(photographer, filteredMedias);
   displayModalInfos(photographer);
 }
 

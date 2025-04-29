@@ -161,6 +161,19 @@ form input {
   margin-bottom: 10px;
 }
 
+.confirm-message {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.223);
+  overflow-y: auto;
+  z-index: 9999;
+}
 /* MAIN */
 .media-section {
   margin: 0px 100px;
@@ -196,17 +209,17 @@ form input {
 }
 
 .like-button {
-  color: #901c1c;
+  color: #ffffff;
   font-size: 24px;
+  -webkit-text-stroke: 2px #901c1c;
   cursor: pointer;
   transition: color 0.5s ease-in-out;
 }
 
 .liked {
-  color: #ffffff;
+  color: #901c1c;
   font-size: 24px;
   cursor: pointer;
-  -webkit-text-stroke: 2px #901c1c;
   transition: color 0.5s ease-in-out;
   animation: upDown 0.5s ease-in-out;
 }
@@ -247,8 +260,8 @@ form input {
   color: #fafafa;
   border: none;
   border-radius: 5px;
-  width: 170px;
-  height: 70px;
+  width: 160px;
+  height: 60px;
   font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;

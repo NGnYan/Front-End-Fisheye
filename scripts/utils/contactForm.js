@@ -1,5 +1,6 @@
 // Selectors
 const modal = document.getElementById("contact_modal");
+const modalBox = document.querySelector(".modal");
 const formContactBtn = document.querySelector("#main .contact_button");
 const photographerName = document.querySelector(".photographer-name");
 const sendForm = document.querySelector("#contact_modal .contact_button");
@@ -117,6 +118,6 @@ sendForm.addEventListener("click", (event) => {
   };
 
   if (isFormValid()) {
-    modal.innerHTML = "Formulaire envoyé !";
+    modalBox.innerHTML = "Formulaire envoyé !";
   }
 });
