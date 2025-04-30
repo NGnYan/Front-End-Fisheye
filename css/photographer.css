@@ -161,18 +161,18 @@ form input {
   margin-bottom: 10px;
 }
 
-.confirm-message {
+#confirm-message {
   display: none;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.223);
-  overflow-y: auto;
-  z-index: 9999;
+  font-size: 1.8em;
+}
+
+#confirm-message img {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
 }
 /* MAIN */
 .media-section {

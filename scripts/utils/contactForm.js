@@ -4,6 +4,7 @@ const modalBox = document.querySelector(".modal");
 const formContactBtn = document.querySelector("#main .contact_button");
 const photographerName = document.querySelector(".photographer-name");
 const sendForm = document.querySelector("#contact_modal .contact_button");
+const confirmMessage = document.getElementById("confirm-message");
 
 /**
  * Making the contact modal visible on the screen
@@ -24,6 +25,7 @@ formContactBtn.addEventListener("click", (event) => {
  */
 function closeModal() {
   modal.style.display = "none";
+  confirmMessage.style.display = "none";
 }
 
 function displayModalInfos(photographer) {
@@ -118,6 +120,7 @@ sendForm.addEventListener("click", (event) => {
   };
 
   if (isFormValid()) {
-    modalBox.innerHTML = "Formulaire envoyé !";
+    modalBox.style.display = "none";
+    confirmMessage.style.display = "flex";
   }
 });
