@@ -17,9 +17,17 @@ function getPhotographerId() {
  * @returns {Promise<Object>} Array of objects
  */
 async function getPhotographers() {
-  const response = await fetch("./data/photographers.json");
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch("./data/photographers.json");
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération :", error);
+    return null;
+  }
 }
 
 let filteredMedias = [];
@@ -72,8 +80,9 @@ function displayMedia(filteredMedias) {
 }
 
 /**
- * Displays photographer's price
+ * Displays photographer's price and likes
  * @param {Object} photographer Photographer object containing details
+ * @param {Object} media Array of objects
  */
 function displayPrice(photographer, media) {
   let totalLikes = 0;
@@ -111,6 +120,7 @@ async function init() {
 
   displayPhotographer(photographer);
   displayMedia(filteredMedias);
+  refreshTotalLikes();
   displayPrice(photographer, filteredMedias);
   displayModalInfos(photographer);
 }

@@ -3,12 +3,20 @@ const photographersSection = document.querySelector(".photographer_section");
 
 /**
  * API call
- * @returns {Promise<Object>} Array of objects
+ * @returns {Promise<Object|null>} Array of objects
  */
 async function getPhotographers() {
-  const response = await fetch("./data/photographers.json");
-  const data = await response.json();
-  return data.photographers;
+  try {
+    const response = await fetch("./data/photographers.json");
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}`);
+    }
+    const data = await response.json();
+    return data.photographers;
+  } catch (error) {
+    console.error("Erreur lors de la récupération :", error);
+    return null;
+  }
 }
 
 /**

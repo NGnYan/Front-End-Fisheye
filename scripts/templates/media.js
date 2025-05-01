@@ -49,14 +49,31 @@ function mediaTemplate(media) {
   likeButton.addEventListener("click", function () {
     if (!isLiked) {
       isLiked = true;
-      likesCount.textContent = parseInt(likesCount.textContent) + 1;
+      media.likes += 1;
+      likesCount.textContent = media.likes;
       likeButton.classList.add("liked");
     } else {
       isLiked = false;
-      likesCount.textContent = parseInt(likesCount.textContent) - 1;
+      media.likes -= 1;
+      likesCount.textContent = media.likes;
       likeButton.classList.remove("liked");
     }
+    refreshTotalLikes();
   });
 
   return article;
+}
+
+function refreshTotalLikes() {
+  const likesCountElmts = document.querySelectorAll(".likes-count");
+  const totalLikesText = document.querySelector(".likes-container p");
+
+  let totalLikes = 0;
+  likesCountElmts.forEach((likeElmt) => {
+    totalLikes += parseInt(likeElmt.textContent);
+  });
+
+  if (totalLikesText) {
+    totalLikesText.textContent = totalLikes;
+  }
 }
