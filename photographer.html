@@ -30,17 +30,22 @@
 
       <div class="dropdown" tabindex="0">
         <h2 class="dropdown-title">Trier par</h2>
-        <button
-          class="dropdown-btn"
-          aria-haspopup="listbox"
-          aria-expanded="false"
-        >
-          Popularité
-        </button>
-        <ul class="dropdown-menu" role="listbox" hidden>
-          <li role="option" tabindex="0">Date</li>
-          <li role="option" tabindex="0">Titre</li>
-        </ul>
+        <div class="expanded-dropdown">
+          <button
+            class="dropdown-btn"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            Popularité
+
+            <img src="assets/icons/expand_close.svg" class="chevron-close" />
+            <img src="assets/icons/expand_open.svg" class="chevron-open" />
+          </button>
+          <ul class="dropdown-menu" role="listbox" tabindex="0">
+            <li role="option" tabindex="0">Date</li>
+            <li role="option" tabindex="0">Titre</li>
+          </ul>
+        </div>
       </div>
 
       <section class="media-section"></section>

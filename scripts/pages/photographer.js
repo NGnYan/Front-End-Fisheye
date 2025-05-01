@@ -1,5 +1,9 @@
 // Selectors
 const photographersHeader = document.querySelector(".photograph-header");
+const dropdownBtn = document.querySelector(".dropdown-btn");
+const dropdownMenu = document.querySelector(".dropdown-menu");
+const chevronClose = document.querySelector(".chevron-close");
+const chevronOpen = document.querySelector(".chevron-open");
 const mediaSection = document.querySelector(".media-section");
 const infosBox = document.querySelector(".box-photographer");
 
@@ -63,6 +67,24 @@ function displayPhotographer(photographer) {
 
   photographersHeader.appendChild(photographerPortrait);
 }
+
+// Dropdown
+
+dropdownBtn.addEventListener("click", () => {
+  const isExpanded = dropdownBtn.getAttribute("aria-expanded") === "true";
+
+  dropdownBtn.setAttribute("aria-expanded", String(!isExpanded));
+
+  if (isExpanded) {
+    dropdownMenu.style.display = "none";
+    chevronClose.style.display = "flex";
+    chevronOpen.style.display = "none";
+  } else {
+    dropdownMenu.style.display = "flex";
+    chevronClose.style.display = "none";
+    chevronOpen.style.display = "flex";
+  }
+});
 
 /**
  * Display photographer media (images and videos)

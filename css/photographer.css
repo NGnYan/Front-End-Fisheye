@@ -245,19 +245,29 @@ form input {
 /* DROPDOWN */
 
 .dropdown {
+  position: relative;
   margin: 20px 100px 40px 100px;
   display: flex;
-  align-items: center;
   gap: 20px;
 }
 
 .dropdown-title {
   font-size: 1.2em;
+  align-items: center;
+}
+
+.expanded-dropdown {
+  position: relative;
 }
 
 .dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 20px;
   background-color: #901c1c;
   color: #fafafa;
+  text-align: left;
   border: none;
   border-radius: 5px;
   width: 160px;
@@ -267,6 +277,39 @@ form input {
   cursor: pointer;
 }
 
+.chevron-close {
+  display: flex;
+  width: 15px;
+  height: auto;
+}
+
+.chevron-open {
+  display: none;
+}
+
+.dropdown-menu {
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: -5px 0 0 0;
+  padding: 0;
+  width: 160px;
+  color: #fafafa;
+  background-color: #901c1c;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 5px 5px;
+  z-index: 1000;
+  font-size: 1.2em;
+  list-style: none;
+}
+
+.dropdown-menu li {
+  padding: 15px 20px;
+  cursor: pointer;
+}
 /* LIGHTBOX */
 
 .lightbox {
