@@ -262,15 +262,16 @@ form input {
 
 .dropdown-btn {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
-  padding-left: 20px;
+  padding: 0 20px 0 20px;
   background-color: #901c1c;
   color: #fafafa;
   text-align: left;
   border: none;
   border-radius: 5px;
-  width: 160px;
+  width: 170px;
   height: 60px;
   font-size: 1.2em;
   font-weight: bold;
@@ -289,26 +290,59 @@ form input {
 
 .dropdown-menu {
   display: none;
-  justify-content: center;
   flex-direction: column;
   position: absolute;
   top: 100%;
   left: 0;
   margin: -5px 0 0 0;
   padding: 0;
-  width: 160px;
+  width: 170px;
   color: #fafafa;
   background-color: #901c1c;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.271);
   border-radius: 0 0 5px 5px;
   z-index: 1000;
   font-size: 1.2em;
   list-style: none;
 }
 
+.dropdown-menu::after {
+  position: absolute;
+  content: "";
+  background-color: white;
+  top: 0;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 1px;
+}
+
 .dropdown-menu li {
+  position: relative;
   padding: 15px 20px;
   cursor: pointer;
+}
+
+.dropdown-menu li::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+  bottom: 0;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: 1px;
+}
+
+.dropdown-menu li:last-child::after {
+  display: none;
+}
+
+.dropdown-menu li:hover {
+  background-color: #904646;
+}
+
+.dropdown-menu li:last-child:hover {
+  background-color: #904646;
+  border-radius: 0 0 5px 5px;
 }
 /* LIGHTBOX */
 

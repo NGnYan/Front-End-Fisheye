@@ -2,6 +2,7 @@
 const photographersHeader = document.querySelector(".photograph-header");
 const dropdownBtn = document.querySelector(".dropdown-btn");
 const dropdownMenu = document.querySelector(".dropdown-menu");
+const selectedOption = document.querySelector(".selected-option");
 const chevronClose = document.querySelector(".chevron-close");
 const chevronOpen = document.querySelector(".chevron-open");
 const mediaSection = document.querySelector(".media-section");
@@ -83,6 +84,16 @@ dropdownBtn.addEventListener("click", () => {
     dropdownMenu.style.display = "flex";
     chevronClose.style.display = "none";
     chevronOpen.style.display = "flex";
+  }
+});
+
+dropdownMenu.addEventListener("click", (element) => {
+  if (element.target.tagName.toLowerCase() === "li") {
+    const clickedLi = element.target;
+    const currentText = selectedOption.textContent;
+
+    selectedOption.textContent = clickedLi.textContent;
+    clickedLi.textContent = currentText;
   }
 });
 
