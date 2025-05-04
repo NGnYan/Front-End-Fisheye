@@ -9,17 +9,12 @@ const nextButton = document.querySelector("#lightbox-next");
  * @returns {Promise<Object>} Array of objects
  */
 async function getPhotographers() {
-  try {
-    const response = await fetch("./data/photographers.json");
-    if (!response.ok) {
-      throw new Error(`Error ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Erreur lors de la récupération :", error);
-    return null;
+  const response = await fetch("./data/photographers.json");
+  if (!response.ok) {
+    throw new Error(`Error ${response.status}`);
   }
+  const data = await response.json();
+  return data;
 }
 
 function refreshLightbox(mediaElmt) {
@@ -56,19 +51,29 @@ function displayLightbox(mediaElmt, medias) {
   refreshLightbox(currentMediaElmt);
 
   nextButton.addEventListener("click", () => {
-    let currentIndex = medias.findIndex(
+    const currentIndex = medias.findIndex(
       (media) => media.id === currentMediaElmt.id
     );
-    const newIndex = currentIndex === medias.length - 1 ? 0 : currentIndex + 1;
+    let newIndex;
+    if (currentIndex === medias.length - 1) {
+      newIndex = 0;
+    } else {
+      newIndex = currentIndex + 1;
+    }
     currentMediaElmt = medias[newIndex];
     refreshLightbox(currentMediaElmt);
   });
 
   previousButton.addEventListener("click", () => {
-    let currentIndex = medias.findIndex(
+    const currentIndex = medias.findIndex(
       (media) => media.id === currentMediaElmt.id
     );
-    const newIndex = currentIndex === medias.length - 1 ? 0 : currentIndex - 1;
+    let newIndex;
+    if (currentIndex > 0) {
+      newIndex = currentIndex - 1;
+    } else {
+      newIndex = medias.length - 1;
+    }
     currentMediaElmt = medias[newIndex];
     refreshLightbox(currentMediaElmt);
   });

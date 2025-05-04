@@ -22,17 +22,12 @@ function getPhotographerId() {
  * @returns {Promise<Object>} Array of objects
  */
 async function getPhotographers() {
-  try {
-    const response = await fetch("./data/photographers.json");
-    if (!response.ok) {
-      throw new Error(`Error ${response.status}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Erreur lors de la récupération :", error);
-    return null;
+  const response = await fetch("./data/photographers.json");
+  if (!response.ok) {
+    throw new Error(`Error ${response.status}`);
   }
+  const data = await response.json();
+  return data;
 }
 
 let filteredMedias = [];
