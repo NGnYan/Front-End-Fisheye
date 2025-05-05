@@ -90,6 +90,17 @@ dropdownMenu.addEventListener("click", (element) => {
     selectedOption.textContent = clickedLi.textContent;
     clickedLi.textContent = currentText;
   }
+  const dropdownElmt = selectedOption.textContent;
+
+  if (dropdownElmt === "Popularité") {
+    filteredMedias.sort((a, b) => b.likes - a.likes);
+  } else if (dropdownElmt === "Date") {
+    filteredMedias.sort((a, b) => new Date(b.date) - new Date(a.date));
+  } else if (dropdownElmt === "Titre") {
+    filteredMedias.sort((a, b) => a.title.localeCompare(b.title));
+  }
+  mediaSection.innerHTML = "";
+  displayMedia(filteredMedias);
 });
 
 /**
@@ -145,6 +156,7 @@ async function init() {
   const { photographers, media } = await getPhotographers();
   const photographer = photographers.find((p) => p.id === photographerId);
   filteredMedias = media.filter((m) => m.photographerId === photographerId);
+  filteredMedias.sort((a, b) => b.likes - a.likes);
 
   displayPhotographer(photographer);
   displayMedia(filteredMedias);
