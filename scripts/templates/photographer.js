@@ -35,10 +35,10 @@ function photographerTemplate(data) {
     article.appendChild(h2);
 
     // Affiche les localisations
-    const localisation = document.createElement("p");
-    localisation.textContent = `${city}, ${country}`;
-    localisation.classList.add("photographer-localisation");
-    article.appendChild(localisation);
+    const localization = document.createElement("p");
+    localization.textContent = `${city}, ${country}`;
+    localization.classList.add("photographer-localization");
+    article.appendChild(localization);
 
     // Affiche les taglines
     const taglineElement = document.createElement("p");

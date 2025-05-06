@@ -18,7 +18,7 @@ async function getPhotographers() {
  * Displays the photographer's information in the header
  *  @param {Object} photographer The photographer's data
  */
-async function displayData(photographers) {
+function displayData(photographers) {
   photographers.forEach((photographer) => {
     const photographerInfos = photographerTemplate(photographer);
     const userCardDOM = photographerInfos.getUserCardDOM();

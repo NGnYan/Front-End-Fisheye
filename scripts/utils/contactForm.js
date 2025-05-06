@@ -6,10 +6,6 @@ const photographerName = document.querySelector(".photographer-name");
 const sendForm = document.querySelector("#contact_modal .contact_button");
 const confirmMessage = document.getElementById("confirm-message");
 
-/**
- * Making the contact modal visible on the screen
- * @return {void}
- */
 function displayModal() {
   modal.style.display = "block";
 }
@@ -19,10 +15,6 @@ formContactBtn.addEventListener("click", (event) => {
   displayModal();
 });
 
-/**
- * Making the contact modal hidden from the screen
- * @return {void}
- */
 function closeModal() {
   modal.style.display = "none";
   confirmMessage.style.display = "none";
@@ -122,5 +114,10 @@ sendForm.addEventListener("click", (event) => {
   if (isFormValid()) {
     modalBox.style.display = "none";
     confirmMessage.style.display = "flex";
+
+    console.log(`Prénom : ${firstName}`);
+    console.log(`Nom : ${lastName}`);
+    console.log(`Email : ${email}`);
+    console.log(`Message : ${msgInput}`);
   }
 });

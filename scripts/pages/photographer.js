@@ -45,10 +45,10 @@ function displayPhotographer(photographer) {
   h2.textContent = photographer.name;
   photographerInfos.appendChild(h2);
 
-  const localisation = document.createElement("p");
-  localisation.textContent = `${photographer.city}, ${photographer.country}`;
-  localisation.classList.add("photographer-localisation");
-  photographerInfos.appendChild(localisation);
+  const localization = document.createElement("p");
+  localization.textContent = `${photographer.city}, ${photographer.country}`;
+  localization.classList.add("photographer-localization");
+  photographerInfos.appendChild(localization);
 
   const taglineElement = document.createElement("p");
   taglineElement.textContent = `${photographer.tagline}`;
@@ -82,7 +82,7 @@ dropdownBtn.addEventListener("click", () => {
   }
 });
 
-dropdownMenu.addEventListener("click", (element) => {
+function handleFilterOnDropdown(element) {
   if (element.target.tagName.toLowerCase() === "li") {
     const clickedLi = element.target;
     const currentText = selectedOption.textContent;
@@ -101,6 +101,10 @@ dropdownMenu.addEventListener("click", (element) => {
   }
   mediaSection.innerHTML = "";
   displayMedia(filteredMedias);
+}
+
+dropdownMenu.addEventListener("click", (element) => {
+  handleFilterOnDropdown(element);
 });
 
 /**
@@ -152,17 +156,32 @@ function displayPrice(photographer, media) {
  * @return {void}  Modifies the page content
  */
 async function init() {
-  const photographerId = getPhotographerId();
-  const { photographers, media } = await getPhotographers();
-  const photographer = photographers.find((p) => p.id === photographerId);
-  filteredMedias = media.filter((m) => m.photographerId === photographerId);
-  filteredMedias.sort((a, b) => b.likes - a.likes);
+  try {
+    const photographerId = getPhotographerId();
+    const { photographers, media } = await getPhotographers();
+    const photographer = photographers.find((p) => p.id === photographerId);
+    if (!photographer) {
+      throw new Error(`Photographe ${photographerId} non trouvé`);
+    }
+    filteredMedias = media.filter((m) => m.photographerId === photographerId);
+    filteredMedias.sort((a, b) => b.likes - a.likes);
 
-  displayPhotographer(photographer);
-  displayMedia(filteredMedias);
-  refreshTotalLikes();
-  displayPrice(photographer, filteredMedias);
-  displayModalInfos(photographer);
+    displayPhotographer(photographer);
+    displayMedia(filteredMedias);
+    refreshTotalLikes();
+    displayPrice(photographer, filteredMedias);
+    displayModalInfos(photographer);
+  } catch (error) {
+    photographersHeader.innerHTML = `<div class="error-id-container"><p class="error-id">${error.message}</p></div>`;
+  }
 }
-
 init();
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const errorContainer = document.querySelector(".error-id-container");
+    if (errorContainer) {
+      errorContainer.remove();
+    }
+  }
+});
