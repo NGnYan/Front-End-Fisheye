@@ -121,3 +121,11 @@ sendForm.addEventListener("click", (event) => {
     console.log(`Message : ${msgInput}`);
   }
 });
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    if (modal.style.display === "block") {
+      closeModal();
+    }
+  }
+});

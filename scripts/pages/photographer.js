@@ -119,6 +119,12 @@ function displayMedia(filteredMedias) {
       displayLightbox(mediaElmt, filteredMedias);
     });
     mediaSection.appendChild(mediaElmts);
+
+    mediaElement.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        displayLightbox(mediaElmt, filteredMedias);
+      }
+    });
   });
 }
 

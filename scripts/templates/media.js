@@ -9,12 +9,14 @@ function mediaTemplate(media) {
     const imgElmt = document.createElement("img");
     imgElmt.src = `assets/images/medias/${media.image}`;
     imgElmt.setAttribute("alt", media.title);
+    imgElmt.setAttribute("tabindex", "0");
     imgElmt.classList.add("media-elmts");
     article.appendChild(imgElmt);
   } else if (media.video) {
     const videoElmt = document.createElement("video");
     videoElmt.src = `assets/images/medias/${media.video}`;
     videoElmt.setAttribute("alt", media.title);
+    videoElmt.setAttribute("tabindex", "0");
     videoElmt.classList.add("media-elmts");
     article.appendChild(videoElmt);
   }

@@ -31,8 +31,12 @@ function displayData(photographers) {
  * @return {void}  Modifies the page content
  */
 async function init() {
-  const photographers = await getPhotographers();
-  displayData(photographers);
+  try {
+    const photographers = await getPhotographers();
+    displayData(photographers);
+  } catch (error) {
+    photographersSection.innerHTML = `<div class="error-id-container"><p class="error-id">${error.message}</p></div>`;
+  }
 }
 
 init();
