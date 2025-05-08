@@ -107,6 +107,18 @@ dropdownMenu.addEventListener("click", (element) => {
   handleFilterOnDropdown(element);
 });
 
+/* dropdownMenu.addEventListener("keydown", (event) => {
+  if (dropdownMenu.style.display === "flex") {
+    if (event.key === "ArrowUp") {
+      clickedLi.click();
+    } else if (event.key === "ArrowDown") {
+      clickedLi.click();
+    } else if (event.key === "Escape") {
+      dropdownMenu.style.display = "none";
+    }
+  }
+});
+
 /**
  * Display photographer media (images and videos)
  * @param {Array} media Array of media objects
@@ -120,6 +132,7 @@ function displayMedia(filteredMedias) {
     });
     mediaSection.appendChild(mediaElmts);
 
+    // Keyboard navigation to display media
     mediaElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         displayLightbox(mediaElmt, filteredMedias);
@@ -183,6 +196,7 @@ async function init() {
 }
 init();
 
+// Keyboard navigation to close error message
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     const errorContainer = document.querySelector(".error-id-container");

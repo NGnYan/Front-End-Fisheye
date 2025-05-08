@@ -63,13 +63,14 @@
         </div>
       </div>
 
-      <div class="dropdown" tabindex="0">
+      <div class="dropdown">
         <h2 class="dropdown-title">Trier par</h2>
         <div class="expanded-dropdown">
           <button
             class="dropdown-btn"
             aria-haspopup="listbox"
             aria-expanded="false"
+            tabindex="0"
           >
             <span class="selected-option">Popularité</span>
             <div>
@@ -77,7 +78,7 @@
               <img src="assets/icons/expand_open.svg" class="chevron-open" />
             </div>
           </button>
-          <ul class="dropdown-menu" role="listbox" tabindex="0">
+          <ul class="dropdown-menu" role="listbox">
             <li role="option" tabindex="0">Date</li>
             <li role="option" tabindex="0">Titre</li>
           </ul>
@@ -88,14 +89,19 @@
     </main>
 
     <div class="lightbox">
-      <button id="lightbox-close" aria-label="Fermer" onclick="closeLightbox()">
+      <button
+        id="lightbox-close"
+        aria-label="Fermer"
+        tabindex="0"
+        onclick="closeLightbox()"
+      >
         <img src="assets/icons/close-lightbox.svg" class="icon-lightbox" />
       </button>
-      <button id="lightbox-prev" aria-label="Image précédente">
+      <button id="lightbox-prev" aria-label="Image précédente" tabindex="0">
         <img src="assets/icons/prev-lightbox.svg" />
       </button>
       <div id="lightbox-content" class="lightbox-content"></div>
-      <button id="lightbox-next" aria-label="Image suivante">
+      <button id="lightbox-next" aria-label="Image suivante" tabindex="0">
         <img src="assets/icons/next-lightbox.svg" />
       </button>
     </div>

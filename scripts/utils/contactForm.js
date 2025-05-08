@@ -122,6 +122,7 @@ sendForm.addEventListener("click", (event) => {
   }
 });
 
+// Keyboard navigation to close modal
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     if (modal.style.display === "block") {

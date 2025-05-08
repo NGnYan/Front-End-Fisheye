@@ -34,7 +34,20 @@ function refreshLightbox(mediaElmt) {
     videoElmt.src = `assets/images/medias/${mediaElmt.video}`;
     videoElmt.alt = mediaElmt.title;
     videoElmt.setAttribute("controls", "controls");
+    videoElmt.setAttribute("tabindex", "0");
     videoElmt.classList.add("lightbox-media");
+
+    // Keyboard navigation to play or stop video
+    videoElmt.addEventListener("keydown", (event) => {
+      event.preventDefault();
+      if (event.key === "Enter") {
+        if (videoElmt.paused) {
+          videoElmt.play();
+        } else {
+          videoElmt.pause();
+        }
+      }
+    });
 
     lightboxContent.appendChild(videoElmt);
   }
@@ -86,3 +99,16 @@ function displayLightbox(mediaElmt, medias) {
 function closeLightbox() {
   lightbox.style.display = "none";
 }
+
+// Keyboard navigation to move around the media
+document.addEventListener("keydown", (event) => {
+  if (lightbox.style.display === "flex") {
+    if (event.key === "ArrowRight") {
+      nextButton.click();
+    } else if (event.key === "ArrowLeft") {
+      previousButton.click();
+    } else if (event.key === "Escape") {
+      closeLightbox();
+    }
+  }
+});
