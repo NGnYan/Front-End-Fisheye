@@ -107,14 +107,23 @@ dropdownMenu.addEventListener("click", (element) => {
   handleFilterOnDropdown(element);
 });
 
-/* dropdownMenu.addEventListener("keydown", (event) => {
+let currentOption = 0;
+dropdownMenu.addEventListener("keydown", (event) => {
+  const options = dropdownMenu.querySelectorAll("li");
+
   if (dropdownMenu.style.display === "flex") {
-    if (event.key === "ArrowUp") {
-      clickedLi.click();
-    } else if (event.key === "ArrowDown") {
-      clickedLi.click();
-    } else if (event.key === "Escape") {
-      dropdownMenu.style.display = "none";
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      if (currentOption < options.length - 1) {
+        currentOption++;
+      }
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      if (currentOption > 0) {
+        currentOption--;
+      }
+    } else if (event.key === "Enter") {
+      handleFilterOnDropdown(event);
     }
   }
 });
