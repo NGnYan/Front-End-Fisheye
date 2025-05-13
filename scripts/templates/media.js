@@ -46,16 +46,18 @@ function mediaTemplate(media) {
   likeButton.classList.add("like-button");
   likeContainer.appendChild(likeButton);
 
-  let isLiked = false;
+  if (media.isLiked) {
+    likeButton.classList.add("liked");
+  }
 
   likeButton.addEventListener("click", function () {
-    if (!isLiked) {
-      isLiked = true;
+    if (!media.isLiked) {
+      media.isLiked = true;
       media.likes += 1;
       likesCount.textContent = media.likes;
       likeButton.classList.add("liked");
     } else {
-      isLiked = false;
+      media.isLiked = false;
       media.likes -= 1;
       likesCount.textContent = media.likes;
       likeButton.classList.remove("liked");
