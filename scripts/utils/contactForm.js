@@ -5,6 +5,7 @@ const formContactBtn = document.querySelector("#main .contact_button");
 const photographerName = document.querySelector(".photographer-name");
 const sendForm = document.querySelector("#contact_modal .contact_button");
 const confirmMessage = document.getElementById("confirm-message");
+const crossModal = document.querySelector(".modal header img");
 
 function displayModal() {
   modal.style.display = "block";
@@ -125,6 +126,14 @@ sendForm.addEventListener("click", (event) => {
 // Keyboard navigation to close modal
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    if (modal.style.display === "block") {
+      closeModal();
+    }
+  }
+});
+
+crossModal.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
     if (modal.style.display === "block") {
       closeModal();
     }

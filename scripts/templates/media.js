@@ -46,16 +46,7 @@ function mediaTemplate(media) {
   likeButton.classList.add("like-button");
   likeContainer.appendChild(likeButton);
 
-  let isLiked = localStorage.getItem(`liked_${media.id}`) === "true";
-
-  if (isLiked) {
-    likeButton.classList.add("liked");
-  }
-
-  const savedLikes = localStorage.getItem(`likes_${media.id}`);
-  if (savedLikes !== null) {
-    media.likes = parseInt(savedLikes);
-  }
+  let isLiked = false;
 
   likeButton.addEventListener("click", function () {
     if (!isLiked) {
@@ -63,17 +54,14 @@ function mediaTemplate(media) {
       media.likes += 1;
       likesCount.textContent = media.likes;
       likeButton.classList.add("liked");
-      localStorage.setItem(`liked_${media.id}`, "true");
     } else {
       isLiked = false;
       media.likes -= 1;
       likesCount.textContent = media.likes;
       likeButton.classList.remove("liked");
-      localStorage.setItem(`liked_${media.id}`, "false");
     }
 
     likesCount.textContent = media.likes;
-    localStorage.setItem(`likes_${media.id}`, media.likes.toString());
 
     refreshTotalLikes();
   });

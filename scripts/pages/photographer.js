@@ -116,16 +116,27 @@ dropdownMenu.addEventListener("keydown", (event) => {
       event.preventDefault();
       if (currentOption < options.length - 1) {
         currentOption++;
+        options[currentOption].focus();
       }
     } else if (event.key === "ArrowUp") {
       event.preventDefault();
       if (currentOption > 0) {
         currentOption--;
+        options[currentOption].focus();
       }
     } else if (event.key === "Enter") {
-      handleFilterOnDropdown(event);
+      event.preventDefault();
+      options[currentOption].click();
+    } else if (event.key === "Escape") {
+      dropdownMenu.style.display = "none";
+      chevronClose.style.display = "flex";
+      chevronOpen.style.display = "none";
     }
   }
+});
+
+dropdownBtn.addEventListener("click", () => {
+  currentOption = 0;
 });
 
 /**

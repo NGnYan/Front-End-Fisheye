@@ -35,7 +35,11 @@
               <h2>Contactez-moi</h2>
               <h2 class="photographer-name"></h2>
             </div>
-            <img src="assets/icons/close.svg" onclick="closeModal()" />
+            <img
+              src="assets/icons/close.svg"
+              onclick="closeModal()"
+              tabindex="0"
+            />
           </header>
 
           <form>
@@ -50,7 +54,7 @@
               <input type="email" id="email" />
               <span id="emailError"></span>
               <label>Votre message</label>
-              <input type="text" id="message-input" />
+              <textarea id="message-input" rows="5" cols="30"></textarea>
               <span id="msgError"></span>
             </div>
             <button class="contact_button" type="submit">Envoyer</button>
