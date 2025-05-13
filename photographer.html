@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <link href="css/photographer.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -38,22 +38,23 @@
             <img
               src="assets/icons/close.svg"
               onclick="closeModal()"
+              alt="Fermer la modale"
               tabindex="0"
             />
           </header>
 
           <form>
             <div>
-              <label>Prénom</label>
+              <label for="first">Prénom</label>
               <input type="text" id="first" />
               <span id="firstError"></span>
-              <label>Nom</label>
+              <label for="last">Nom</label>
               <input type="text" id="last" />
               <span id="lastError"></span>
-              <label>Email</label>
+              <label for="email">Email</label>
               <input type="email" id="email" />
               <span id="emailError"></span>
-              <label>Votre message</label>
+              <label for="message-input">Votre message</label>
               <textarea id="message-input" rows="5" cols="30"></textarea>
               <span id="msgError"></span>
             </div>
@@ -63,7 +64,11 @@
 
         <div class="modal" id="confirm-message">
           <p>Formulaire envoyé !</p>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img
+            src="assets/icons/close.svg"
+            alt="Fermer la modale"
+            onclick="closeModal()"
+          />
         </div>
       </div>
 
@@ -78,8 +83,16 @@
           >
             <span class="selected-option">Popularité</span>
             <div>
-              <img src="assets/icons/expand_close.svg" class="chevron-close" />
-              <img src="assets/icons/expand_open.svg" class="chevron-open" />
+              <img
+                src="assets/icons/expand_close.svg"
+                class="chevron-close"
+                alt="Chevron-fermer"
+              />
+              <img
+                src="assets/icons/expand_open.svg"
+                class="chevron-open"
+                alt="Chevron-ouvert"
+              />
             </div>
           </button>
           <ul class="dropdown-menu" role="listbox">
@@ -99,14 +112,18 @@
         tabindex="0"
         onclick="closeLightbox()"
       >
-        <img src="assets/icons/close-lightbox.svg" class="icon-lightbox" />
+        <img
+          src="assets/icons/close-lightbox.svg"
+          class="icon-lightbox"
+          alt="Fermer la modale"
+        />
       </button>
       <button id="lightbox-prev" aria-label="Image précédente" tabindex="0">
-        <img src="assets/icons/prev-lightbox.svg" />
+        <img src="assets/icons/prev-lightbox.svg" alt="Bouton précédent" />
       </button>
       <div id="lightbox-content" class="lightbox-content"></div>
       <button id="lightbox-next" aria-label="Image suivante" tabindex="0">
-        <img src="assets/icons/next-lightbox.svg" />
+        <img src="assets/icons/next-lightbox.svg" alt="Bouton suivant" />
       </button>
     </div>
 
