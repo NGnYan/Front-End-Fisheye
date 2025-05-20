@@ -44,6 +44,7 @@ function mediaTemplate(media) {
   const likeButton = document.createElement("i");
   likeButton.classList.add("fa-solid", "fa-heart");
   likeButton.classList.add("like-button");
+  likeButton.setAttribute("tabindex", "0");
   likeContainer.appendChild(likeButton);
 
   if (media.isLiked) {
@@ -66,6 +67,12 @@ function mediaTemplate(media) {
     likesCount.textContent = media.likes;
 
     refreshTotalLikes();
+  });
+
+  likeButton.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      likeButton.click();
+    }
   });
 
   return article;

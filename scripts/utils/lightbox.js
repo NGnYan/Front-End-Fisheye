@@ -102,4 +102,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+window.closeLightbox = closeLightbox;
+
 export { displayLightbox, getPhotographers };

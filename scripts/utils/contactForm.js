@@ -140,4 +140,6 @@ crossModal.addEventListener("keydown", (event) => {
   }
 });
 
+window.closeModal = closeModal;
+
 export { displayModalInfos };

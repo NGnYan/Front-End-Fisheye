@@ -402,6 +402,7 @@ form input {
   position: absolute;
   top: 40px;
   right: 5%;
+  cursor: pointer;
 }
 
 #lightbox-prev {
@@ -423,6 +424,7 @@ form input {
 .icon-lightbox {
   align-items: center;
   background-color: inherit;
+  cursor: pointer;
 }
 
 .lightbox-media {
@@ -438,13 +440,13 @@ form input {
 .box-photographer {
   position: fixed;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   align-items: center;
   bottom: 0px;
   right: 20px;
   height: 25px;
-  width: 10%;
+  width: 12%;
   padding: 10px 35px;
   background-color: #db8876;
   border-top-left-radius: 5px;
