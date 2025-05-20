@@ -139,3 +139,5 @@ crossModal.addEventListener("keydown", (event) => {
     }
   }
 });
+
+export { displayModalInfos };

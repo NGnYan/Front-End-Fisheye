@@ -66,3 +66,5 @@ function photographerTemplate(data) {
     getUserCardDOM,
   };
 }
+
+export { photographerTemplate };

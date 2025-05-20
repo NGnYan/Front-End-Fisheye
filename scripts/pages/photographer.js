@@ -1,3 +1,8 @@
+import { mediaTemplate, refreshTotalLikes } from "../templates/media.js";
+import { displayLightbox } from "../utils/lightbox.js";
+import { displayModalInfos } from "../utils/contactForm.js";
+import { getPhotographers } from "../utils/api.js";
+
 // Selectors
 const photographersHeader = document.querySelector(".photograph-header");
 const dropdownBtn = document.querySelector(".dropdown-btn");
@@ -15,19 +20,6 @@ const infosBox = document.querySelector(".box-photographer");
 function getPhotographerId() {
   const urlParams = new URLSearchParams(window.location.search);
   return parseInt(urlParams.get("id"));
-}
-
-/**
- * API call
- * @returns {Promise<Object>} Array of objects
- */
-async function getPhotographers() {
-  const response = await fetch("./data/photographers.json");
-  if (!response.ok) {
-    throw new Error(`Error ${response.status}`);
-  }
-  const data = await response.json();
-  return data;
 }
 
 let filteredMedias = [];

@@ -84,3 +84,5 @@ function refreshTotalLikes() {
     totalLikesText.textContent = totalLikes;
   }
 }
+
+export { mediaTemplate, refreshTotalLikes };

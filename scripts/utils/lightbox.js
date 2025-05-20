@@ -1,21 +1,10 @@
+import { getPhotographers } from "../utils/api.js";
+
 // Selectors
 const lightbox = document.querySelector(".lightbox");
 const lightboxContent = document.getElementById("lightbox-content");
 const previousButton = document.querySelector("#lightbox-prev");
 const nextButton = document.querySelector("#lightbox-next");
-
-/**
- * API call
- * @returns {Promise<Object>} Array of objects
- */
-async function getPhotographers() {
-  const response = await fetch("./data/photographers.json");
-  if (!response.ok) {
-    throw new Error(`Error ${response.status}`);
-  }
-  const data = await response.json();
-  return data;
-}
 
 function refreshLightbox(mediaElmt) {
   lightboxContent.innerHTML = "";
@@ -112,3 +101,5 @@ document.addEventListener("keydown", (event) => {
     }
   }
 });
+
+export { displayLightbox, getPhotographers };

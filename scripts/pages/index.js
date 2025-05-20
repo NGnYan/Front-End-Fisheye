@@ -1,18 +1,8 @@
+import { photographerTemplate } from "../templates/photographer.js";
+import { getPhotographers } from "../utils/api.js";
+
 // Selectors
 const photographersSection = document.querySelector(".photographer_section");
-
-/**
- * API call
- * @returns {Promise<Object|null>} Array of objects
- */
-async function getPhotographers() {
-  const response = await fetch("./data/photographers.json");
-  if (!response.ok) {
-    throw new Error(`Error ${response.status}`);
-  }
-  const data = await response.json();
-  return data.photographers;
-}
 
 /**
  * Displays the photographer's information in the header
@@ -32,7 +22,7 @@ function displayData(photographers) {
  */
 async function init() {
   try {
-    const photographers = await getPhotographers();
+    const { photographers } = await getPhotographers();
     displayData(photographers);
   } catch (error) {
     photographersSection.innerHTML = `<div class="error-id-container"><p class="error-id">${error.message}</p></div>`;
