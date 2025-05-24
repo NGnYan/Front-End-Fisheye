@@ -27,6 +27,7 @@ let filteredMedias = [];
 /**
  * Displays the photographer's information in the header
  *  @param {Object} photographer The photographer's data
+ * @returns {void}
  */
 function displayPhotographer(photographer) {
   const photographerInfos = document.createElement("div");
@@ -74,6 +75,11 @@ dropdownBtn.addEventListener("click", () => {
   }
 });
 
+/**
+ * Handles media sorting when a dropdown option is selected.
+ * @param {Event} element - The click event triggered on the dropdown list.
+ * @returns {void}
+ */
 function handleFilterOnDropdown(element) {
   if (element.target.tagName.toLowerCase() === "li") {
     const clickedLi = element.target;

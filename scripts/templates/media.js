@@ -1,5 +1,6 @@
 /**
  * Creates a media element (images or videos) for display
+ * @param {Object} media - The media object containing details for display
  * @returns {HTMLElement} The DOM element representing the media item (image or video) and informations (title and like)
  */
 function mediaTemplate(media) {
